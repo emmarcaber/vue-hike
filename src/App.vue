@@ -1,14 +1,10 @@
 <script setup>
-// import CounterApp from './1_Core_Vue_Foundation/CounterApp.vue'
-// import TodoList from './1_Core_Vue_Foundation/TodoList.vue'
-import CountdownTimer from './1_Core_Vue_Foundation/CountdownTimer.vue'
+import CoreVueFoundation from './Chapters/CoreVueFoundation.vue'
 </script>
 
 <template>
   <div id="app">
-    <!-- <CounterApp /> -->
-    <!-- <TodoList /> -->
-    <CountdownTimer />
+    <CoreVueFoundation />
   </div>
 </template>
 
