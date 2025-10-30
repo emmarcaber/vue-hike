@@ -1,10 +1,12 @@
 <script setup>
-import CoreVueFoundation from './Chapters/CoreVueFoundation.vue'
+// import CoreVueFoundation from './Chapters/CoreVueFoundation.vue'
+import ComponentThinking from './Chapters/ComponentThinking.vue'
 </script>
 
 <template>
   <div id="app">
-    <CoreVueFoundation />
+    <!-- <CoreVueFoundation /> -->
+    <ComponentThinking />
   </div>
 </template>
 
