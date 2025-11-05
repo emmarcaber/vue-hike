@@ -1,6 +1,6 @@
 <script setup>
-// import CoreVueFoundation from './Chapters/CoreVueFoundation.vue'
-import ComponentThinking from './Chapters/ComponentThinking.vue'
+// import CoreVueFoundation from './Chapters/1_CoreVueFoundation.vue'
+import ComponentThinking from './Chapters/2_ComponentThinking.vue'
 </script>
 
 <template>
