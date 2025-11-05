@@ -40,7 +40,11 @@ const completedTasks = computed(() =>
 
 const addTask = (task) => {
   if (!task.title || !task.description || !task.status) return
-  todos.value.push({ ...task, id: todos.value.length + 1 })
+  todos.value.push({ ...task, id: getNextId })
+}
+
+const getNextId = () => {
+  return todos.value.length ? Math.max(...todos.value.map((t) => t.id)) + 1 : 1
 }
 
 const updateTask = (updatedTask) => {
