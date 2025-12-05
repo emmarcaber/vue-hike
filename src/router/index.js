@@ -1,15 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/4_Routing_and_Navigation/views/HomeView.vue'
 import AboutView from '@/4_Routing_and_Navigation/views/AboutView.vue'
 import UserView from '@/4_Routing_and_Navigation/views/UserView.vue'
 import DashboardView from '@/4_Routing_and_Navigation/views/DashboardView.vue'
-import { isAuthenticated } from '@/auth'
+import BlogView from '@/4_Routing_and_Navigation/views/BlogView.vue'
+import LoginView from '@/4_Routing_and_Navigation/views/LoginView.vue'
+import HomeView from '@/4_Routing_and_Navigation/views/HomeView.vue'
+import { useAuth } from '@/composables/useAuth'
 
 const routes = [
-  { path: '/', name: 'home', component: HomeView },
+  { path: '/', name: 'index', component: LoginView },
+  { path: '/home', name: 'home', component: HomeView },
   { path: '/about', name: 'about', component: AboutView },
-  { path: '/user/:id', name: 'user', component: UserView, props: true },
+  { path: '/blog', name: 'blog', component: BlogView },
   { path: '/dashboard', name: 'dashboard', component: DashboardView, meta: { requiresAuth: true } },
+  { path: '/user/:id', name: 'user', component: UserView, props: true },
 ]
 
 const router = createRouter({
@@ -18,8 +22,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth && !isAuthenticated()) {
-    alert('You must log in first!')
+  const { isAuthenticated } = useAuth()
+
+  if (to.meta.requiresAuth && !isAuthenticated.value) {
+    alert('Access denied! Please login first.')
     next('/')
   } else {
     next()
